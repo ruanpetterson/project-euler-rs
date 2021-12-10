@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 use clap::{App, Arg};
-use project_euler::problem_0001;
+use project_euler::{problem_0001, problem_0002};
 
 fn main() {
     let matches = App::new("Project Euler answers")
@@ -24,6 +24,13 @@ fn main() {
                     "{}",
                     problem_0001::multiples_of_3_or_5(1000)
                         .into_iter()
+                        .sum::<usize>()
+                ),
+                2 => println!(
+                    "{}",
+                    problem_0002::Fibonacci::default()
+                        .take_while(|&n| n <= 4_000_000)
+                        .filter(|&n| n % 2 == 0)
                         .sum::<usize>()
                 ),
                 _ => unimplemented!(),
