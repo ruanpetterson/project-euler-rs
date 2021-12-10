@@ -1,6 +1,7 @@
 use std::str::FromStr;
 
 use clap::{App, Arg};
+use project_euler::problem_0001;
 
 fn main() {
     let matches = App::new("Project Euler answers")
@@ -19,6 +20,12 @@ fn main() {
     if let Some(problem) = matches.value_of("problem") {
         if let Ok(problem_id) = usize::from_str(problem) {
             match problem_id {
+                1 => println!(
+                    "{}",
+                    problem_0001::multiples_of_3_or_5(1000)
+                        .into_iter()
+                        .sum::<usize>()
+                ),
                 _ => unimplemented!(),
             }
         } else {
