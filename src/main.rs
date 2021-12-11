@@ -47,6 +47,11 @@ fn main() {
                         .map(|n| 600851475143 / n)
                         .unwrap()
                 ),
+                6 => {
+                    let a = (1u32..=100).sum::<u32>().pow(2);
+                    let b = (1u32..=100).map(|n| n.pow(2)).sum::<u32>();
+                    println!("{} - {} = {}", a, b, a - b);
+                }
                 7 => println!(
                     "{}",
                     problem_0007::Prime::default()
