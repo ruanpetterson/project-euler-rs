@@ -5,6 +5,7 @@ use clap::{App, Arg};
 use project_euler::problem_0001;
 use project_euler::problem_0002;
 use project_euler::problem_0003;
+use project_euler::problem_0007;
 
 fn main() {
     let matches = App::new("Project Euler answers")
@@ -44,6 +45,13 @@ fn main() {
                         .find(|&n| 600851475143 % n == 0
                             && problem_0003::is_prime(600851475143 / n))
                         .map(|n| 600851475143 / n)
+                        .unwrap()
+                ),
+                7 => println!(
+                    "{}",
+                    problem_0007::Prime::default()
+                        .into_iter()
+                        .nth(10_001 - 1)
                         .unwrap()
                 ),
                 _ => unimplemented!(),
