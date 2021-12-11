@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 use clap::{App, Arg};
-use project_euler::{problem_0001, problem_0002};
+use project_euler::{problem_0001, problem_0002, problem_0003};
 
 fn main() {
     let matches = App::new("Project Euler answers")
@@ -32,6 +32,16 @@ fn main() {
                         .take_while(|&n| n <= 4_000_000)
                         .filter(|&n| n % 2 == 0)
                         .sum::<usize>()
+                ),
+                3 => println!(
+                    "{:?}",
+                    (3..)
+                        .step_by(2)
+                        .into_iter()
+                        .find(|&n| 600851475143 % n == 0
+                            && problem_0003::is_prime(600851475143 / n))
+                        .map(|n| 600851475143 / n)
+                        .unwrap()
                 ),
                 _ => unimplemented!(),
             }
