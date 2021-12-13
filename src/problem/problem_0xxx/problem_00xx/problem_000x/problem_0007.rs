@@ -1,4 +1,4 @@
-use crate::problem_0003::Prime;
+use crate::problem::problem_0xxx::problem_00xx::problem_0003::Prime;
 use crate::Solution;
 
 pub struct Problem;

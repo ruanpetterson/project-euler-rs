@@ -2,14 +2,8 @@ use std::str::FromStr;
 
 use clap::{App, Arg};
 
-use project_euler::problem_0001;
-use project_euler::problem_0002;
-use project_euler::problem_0003;
-use project_euler::problem_0005;
-use project_euler::problem_0006;
-use project_euler::problem_0007;
-
 use project_euler::Solution;
+use project_euler::*;
 
 fn main() {
     let matches = App::new("Project Euler answers")
