@@ -5,6 +5,7 @@ use clap::{App, Arg};
 use project_euler::problem_0001;
 use project_euler::problem_0002;
 use project_euler::problem_0003;
+use project_euler::problem_0005;
 use project_euler::problem_0006;
 use project_euler::problem_0007;
 
@@ -30,6 +31,7 @@ fn main() {
                 1 => problem_0001::Problem::solve(),
                 2 => problem_0002::Problem::solve(),
                 3 => problem_0003::Problem::solve(),
+                5 => problem_0005::Problem::solve(),
                 6 => problem_0006::Problem::solve(),
                 7 => problem_0007::Problem::solve(),
                 _ => unimplemented!(),
