@@ -13,7 +13,9 @@ pub struct Problem;
 impl Solution for Problem {
     #[inline]
     fn solve() {
-        println!("{}", multiples_of_3_or_5(1000).into_iter().sum::<usize>());
+        const INPUT: usize = 1000;
+
+        println!("{}", multiples_of_3_or_5(INPUT).into_iter().sum::<usize>());
     }
 }
 

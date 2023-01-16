@@ -35,13 +35,15 @@ pub struct Problem;
 impl Solution for Problem {
     #[inline]
     fn solve() {
+        const INPUT: usize = 600851475143;
+
         println!(
             "{:?}",
             (3..)
                 .step_by(2)
                 .into_iter()
-                .find(|&n| 600851475143 % n == 0 && is_prime(600851475143 / n))
-                .map(|n| 600851475143 / n)
+                .find(|&n| INPUT % n == 0 && is_prime(INPUT / n))
+                .map(|n| INPUT / n)
                 .unwrap()
         );
     }
