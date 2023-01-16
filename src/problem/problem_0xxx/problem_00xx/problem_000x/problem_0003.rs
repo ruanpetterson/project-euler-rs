@@ -14,7 +14,7 @@ impl Iterator for Prime {
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(n) = (self.0 + 1..).find(|&n| is_prime(n)) {
             self.0 = n;
-            Some(self.0)
+        Some(self.0)
         } else {
             None
         }
@@ -56,6 +56,7 @@ mod tests {
 
     #[test]
     fn first_10_prime_numbers() {
+        assert!(!is_prime(0), "there are only prime numbers greater than 1");
         assert!(is_prime(2));
         assert!(is_prime(3));
         assert!(!is_prime(4));
@@ -67,11 +68,18 @@ mod tests {
         assert!(!is_prime(27));
         assert!(is_prime(29));
 
-        assert_eq!(
-            Prime::default()
-                .take_while(|&n| n <= 29)
-                .collect::<Vec<usize>>(),
-            vec![2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-        );
+        let fib: Vec<usize> = Prime::default()
+            .take_while(|&n| n <= 29)
+            .collect::<Vec<usize>>();
+
+        assert_eq!(fib, vec![2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+    }
+
+    #[test]
+    fn run_out_of_numbers() {
+        let prime = Prime(usize::MAX);
+        let mut it = prime.into_iter();
+
+        assert_eq!(it.next(), None);
     }
 }
