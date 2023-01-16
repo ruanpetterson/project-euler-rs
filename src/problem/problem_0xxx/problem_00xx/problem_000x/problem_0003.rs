@@ -12,12 +12,12 @@ impl Iterator for Prime {
     type Item = usize;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if let Some(n) = (self.0 + 1..).find(|&n| is_prime(n)) {
-            self.0 = n;
+        let n = self.0.checked_add(1)?;
+        let next_prime = (n..).find(|&n| is_prime(n))?;
+
+        self.0 = next_prime;
+
         Some(self.0)
-        } else {
-            None
-        }
     }
 }
 
